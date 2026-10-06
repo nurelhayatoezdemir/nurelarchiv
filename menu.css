@@ -1,0 +1,125 @@
+/* ---------------------------------------------------------
+   GLOBAL
+--------------------------------------------------------- */
+
+body {
+  margin: 0;
+  background: #ffffff;
+  font-family: Helvetica, sans-serif;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* Fade */
+.fade-in {
+  opacity: 1;
+}
+.fade-out {
+  opacity: 0;
+}
+
+.project-page {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 20px; /* außen */
+  padding: 20px; /* innen */
+  gap: 20px; /* zwischen den Spalten */
+  width: 100%;
+  background: black;
+}
+
+/* ---------------------------------------------------------
+   SCHÄDEL (GLEICH WIE INDEX)
+--------------------------------------------------------- */
+
+#click-zone {
+  position: absolute;
+  top: -50px; /*  EXACT SAME AS INDEX  */
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+#skull-btn {
+  width: 400px; /* same size as index */
+  pointer-events: none;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+#click-zone:hover #skull-btn {
+  transform: rotate(-90deg);
+}
+
+/* ---------------------------------------------------------
+   MENU TEXT (EXAKT AUF GLEICHER HÖHE)
+--------------------------------------------------------- */
+
+.menu-left {
+  margin-top: 42px; /* MATCHES YOUR INDEX-SLIDER HEIGHT */
+  font-size: 50pt;
+  font-weight: 400;
+  line-height: 1.1;
+  z-index: 20;
+  margin-left: 20px;
+}
+
+.menu-left {
+  top: 42px; /* MATCHES YOUR INDEX-SLIDER HEIGHT */
+  font-weight: 400;
+  line-height: 1.1;
+  z-index: 20;
+}
+
+/* LINKS */
+
+.menu-left a,
+.menu-right a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.menu-left a:hover,
+.menu-right a:hover {
+  opacity: 0.3;
+}
+
+/* ---------------------------------------------------------
+   BACK ZONE (überall klicken = zurück)
+--------------------------------------------------------- */
+
+#back-zone {
+  position: fixed;
+  inset: 0;
+  cursor: pointer;
+  z-index: 5;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* KEYFRAMES */
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+#click-zone {
+  pointer-events: none; /* Nur das Bild bekommt clicks über JS */
+}
+#skull-btn {
+  pointer-events: auto; /* Bild bleibt klickbar */
+}

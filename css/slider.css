@@ -1,0 +1,66 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  background: #000000;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Helvetica, sans-serif;
+  transition: opacity 0.6s ease;
+}
+
+img {
+  width: 100%;
+}
+
+/* FADE EFFECT */
+.fade-in {
+  opacity: 1;
+}
+.fade-out {
+  opacity: 0;
+}
+
+/* BACKGROUND GRID */
+.project-page {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 20px; /* außen */
+  padding: 20px; /* innen */
+  gap: 20px; /* zwischen den Spalten */
+  width: 100%;
+  background: black;
+}
+
+.swiper-wrapper {
+  --swiper-wrapper-transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+.swiper {
+  margin-top: 150px;
+}
+
+/* SKULL CLICK-ZONE */
+#click-zone {
+  position: absolute;
+  top: -100px; /* <<< MASTER POSITION */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px; /* unsichtbare Fläche */
+  cursor: pointer;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skull-btn {
+  width: 400px;
+  pointer-events: none;
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+#click-zone.hover-active #skull-btn {
+  transform: rotate(-90deg);
+}

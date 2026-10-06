@@ -1,0 +1,177 @@
+/* Full page wrapper */
+html,
+body {
+  margin: 0;
+  padding: 0 20px; /* LINKS UND RECHTS IM VIEWPORT */
+  background: black;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.project-page {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 20px;
+  width: 100%;
+  background: black;
+}
+
+/* IMAGE takes 3 right columns */
+.project-image {
+  grid-column: 3 / span 3;
+  display: flex;
+  justify-content: flex-end; /* right aligned */
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* TEXT is full width below image */
+.project-text {
+  grid-column: 1 / span 3;
+  margin-top: 20px;
+  color: white;
+  font-family: Helvetica;
+}
+
+/* TITLE */
+.project-text h1 {
+  font-size: 50pt;
+  font-weight: 400;
+  margin-bottom: -42px;
+  line-height: 1.1;
+  color: white;
+  margin: 0;
+  z-index: 20px;
+  margin-left: -2px;
+  margin-top: 42px;
+}
+
+/* BODY TEXT */
+.project-text p {
+  font-size: 30pt;
+  line-height: 1.2;
+  max-width: 60%;
+  margin-top: -8px;
+  font-family: Helvetica;
+}
+
+/* SKULL CLICK-ZONE */
+#click-zone {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skull-btn {
+  width: 400px;
+  pointer-events: none;
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+#click-zone.hover-active #skull-btn {
+  transform: rotate(-90deg);
+}
+
+.project-fullsize {
+  box-sizing: border-box;
+  background: black;
+}
+
+.project-fullsize img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  margin: 0 0 20px 0; /* unten spacing, KEIN links/rechts margin */
+  object-fit: contain;
+}
+
+/* FILMSTRIP / KONTAKTABZUG GRID – 5 SPALTEN */
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* <<< 5 SPALTEN */
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: black;
+}
+
+/* Fotoğraf kutusu (analog oran) */
+.film-item {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* analog portrait ratio */
+  background: #0f0f0f;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fotoğraf styling */
+.film-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(110%) saturate(70%);
+}
+.project-poster {
+  grid-column: 3 / span 3;
+  display: flex;
+  justify-content: flex-end; /* right aligned */
+  margin-bottom: 20px;
+}
+.project-poster img {
+  width: 60%;
+
+  height: auto;
+
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+
+  padding: 0; /* KEIN EXTRA PADDING */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-left {
+  grid-column: 1 / span 3;
+}
+
+.project-left img {
+  width: 60%;
+  margin-top: 20px;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  background: black; /* Falls Video kurz nicht geladen wurde */
+  object-fit: contain;
+}
+

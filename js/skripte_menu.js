@@ -38,11 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Touch: treat quick touch as hover feedback (but don't navigate automatically)
     skullZone.addEventListener(
       "touchstart",
-      () => {
-        
-        skullZone.classList.add (hover"hover-active");
-        setTimeout(() => skullZOne.classList.remove("hover_activ")
-                   }, {passive:true}
+      (ev) => {
+        // prevent immediate double-handling by pointer events
+        ev.preventDefault();
+        skullZone.classList.add("hover-active");
+        safePlayAudio(sound);
+        // remove hover state after short time for touch
+        setTimeout(() => skullZone.classList.remove("hover-active"), 600);
+      },
+      { passive: false }
     );
 
     skullZone.addEventListener("click", () => {

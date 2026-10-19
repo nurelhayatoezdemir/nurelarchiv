@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // remove hover state after short time for touch
         setTimeout(() => skullZone.classList.remove("hover-active"), 600);
       },
-      { passive: true }
+      { passive: passiv }
     );
 
     skullZone.addEventListener("click", () => {

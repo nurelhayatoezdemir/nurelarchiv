@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------ Elements (optional) -------------
   const skullZone = document.getElementById("click-zone"); // container div
   const skull = document.getElementById("skull-btn"); // img inside container
-  const sound = document.getElementById("krch"); // <audio id="krch" src="sounds/krch.mp3">
+
 
   // helper: safe play (catches autoplay block errors)
   function safePlayAudio(audioEl) {
@@ -47,19 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
       skullZone.classList.remove("hover-active");
     });
 
-    // Touch: treat quick touch as hover feedback (but don't navigate automatically)
-    skullZone.addEventListener(
-      "touchstart",
-      (ev) => {
-        // prevent immediate double-handling by pointer events
-        ev.preventDefault();
-        skullZone.classList.add("hover-active");
-        safePlayAudio(sound);
-        // remove hover state after short time for touch
-        setTimeout(() => skullZone.classList.remove("hover-active"), 600);
-      },
-      { passive: false }
-    );
+
+skullZone.addEventListener("touchstart", (ev) => {
+  ev.preventDefault();
+
+  skullZone.classList.add("hover-active");
+  safePlayAudio(sound);
+
+  setTimeout(() => {
+    window.location.href = "menu.html";
+  }, 150);
+}, { passive: false });
+
 
     // Click -> navigate to menu (with fade-out)
     skullZone.addEventListener("click", () => {

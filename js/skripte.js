@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (skullZone && skull) {
     // Mouse hover
     skullZone.addEventListener("pointerenter", (ev) => {
+      if (ev.pointerType === "touch") return; // touch handled by touchstart
       skullZone.classList.add("hover-active");
       safePlayAudio(sound);
     });
@@ -51,12 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
     skullZone.addEventListener(
       "touchstart",
       () => {
-        // prevent immediate double-handling by pointer events
- 
         skullZone.classList.add("hover-active");
         safePlayAudio(sound);
         // remove hover state after short time for touch
-        setTimeout(() => skullZone.classList.remove("hover-active"),
+        setTimeout(() => skullZone.classList.remove("hover-active"), 600);
       },
       { passive: true }
     );

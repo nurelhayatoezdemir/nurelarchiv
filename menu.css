@@ -10,7 +10,12 @@ body {
   transition: opacity 0.6s ease;
 }
 
-
+css
+@skull-btn (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background-color: blue;
+  }
+}
 }
 
 .project-page {
@@ -34,6 +39,7 @@ body {
   transform: translateX(-50%);
   cursor: pointer;
   z-index: 10;
+   
 }
 
 #skull-btn {

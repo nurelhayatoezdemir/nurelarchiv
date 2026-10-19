@@ -48,11 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-skullZone.addEventListener("touchstart", (ev) => {
-  ev.preventDefault();
-
-  skullZone.classList.add("hover-active");
-  safePlayAudio(sound);
+skullZone.addEventListener("touchstart", () => {
+        
+        skullZone.classList.add (hover"hover-active");
+        setTimeout(() => skullZOne.classList.remove("hover_activ")
+                   }, {passive:true}
+    );
 
   setTimeout(() => {
     window.location.href = "menu.html";

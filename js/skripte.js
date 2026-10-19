@@ -50,15 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Touch: treat quick touch as hover feedback (but don't navigate automatically)
     skullZone.addEventListener(
       "touchstart",
-      (ev) => {
+      () => {
         // prevent immediate double-handling by pointer events
-        ev.preventDefault();
+ 
         skullZone.classList.add("hover-active");
         safePlayAudio(sound);
         // remove hover state after short time for touch
-        setTimeout(() => skullZone.classList.remove("hover-active"), 600);
+        setTimeout(() => skullZone.classList.remove("hover-active"),
       },
-      { passive: false }
+      { passive: true }
     );
 
     // Click -> navigate to menu (with fade-out)

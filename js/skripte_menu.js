@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Touch: treat quick touch as hover feedback (but don't navigate automatically)
     skullZone.addEventListener(
       "touchstart",
-      (ev) => {
+      () => {
         // prevent immediate double-handling by pointer events
         ev.preventDefault();
         skullZone.classList.add("hover-active");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // remove hover state after short time for touch
         setTimeout(() => skullZone.classList.remove("hover-active"), 600);
       },
-      { passive: false }
+      { passive: true }
     );
 
     skullZone.addEventListener("click", () => {
